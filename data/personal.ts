@@ -1,0 +1,15 @@
+export const personalInfo = {
+  name: "Santhosh Sanapathi",
+  role: "Full Stack Developer",
+  tagline: "Building modern software solutions with passion and precision",
+  bio: "Dynamic software developer with experience in full-stack web and mobile app development. Skilled in building scalable, user-focused solutions using PHP, Next.js, JavaScript, Flutter, and Firebase. I've led projects from idea to deployment, improving institutional workflows and user experience across education and tourism domains. Strong in problem-solving, debugging, and collaborating in agile teams. Passionate about secure, efficient software—and always eager to learn and adopt new technologies quickly.",
+  email: "santhoshsanapathi091104@gmail.com",
+  phone: "+91 7993791279",
+  github: "https://github.com/alpharibbin",
+  linkedin: "https://in.linkedin.com/in/santhosh-sanapathi",
+  instagram: "https://www.instagram.com/santhosh_sanapathi/",
+  whatsapp: "+917993791279",
+  telegram: "+917993791279",
+  location: "Srikakulam, Andhra Pradesh, India",
+  avatar: "/img.jpg",
+}

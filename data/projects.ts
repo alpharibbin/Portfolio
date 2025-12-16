@@ -1,0 +1,140 @@
+export interface Project {
+  id: string
+  title: string
+  description: string
+  longDescription: string
+  category: string
+  technologies: string[]
+  imageUrl?: string
+  liveUrl?: string
+  githubUrl?: string
+  featured: boolean
+}
+
+export const projects: Project[] = [
+  {
+    id: "1",
+    title: "RGUKT Srikakulam Website",
+    description: "Institutional portal with announcement systems, multimedia galleries, and sub-portal integrations",
+    longDescription: "Developed a comprehensive institutional portal for RGUKT Srikakulam featuring announcement systems, multimedia galleries, and seamless sub-portal integrations for examinations and placements. Implemented social media links and analytics, successfully supporting 9,700+ views for enhanced academic outreach and institutional visibility.",
+    category: "Web Application",
+    technologies: ["HTML", "CSS", "JavaScript", "PHP", "jQuery", "SQL", "Bootstrap"],
+    liveUrl: "https://rguktsklm.ac.in",
+    featured: true,
+  },
+  {
+    id: "2",
+    title: "College Management System",
+    description: "Multi-module platform with LMS, outpass management, notice board, and attendance tracking",
+    longDescription: "Engineered a comprehensive multi-module platform featuring Learning Management System (LMS), outpass management, notice board, and attendance tracking capabilities. Implemented encryption for enhanced data privacy and included features like forums and notifications to streamline academic operations and improve institutional communication.",
+    category: "Web Application",
+    technologies: ["HTML", "CSS", "JavaScript", "PHP", "jQuery", "SQL", "Bootstrap"],
+    liveUrl: "https://aikyam.rguktsklm.ac.in",
+    featured: true,
+  },
+  {
+    id: "3",
+    title: "Results Management System",
+    description: "Portal for results, schedules, and news updates with social integrations and analytics",
+    longDescription: "Designed and developed a specialized portal for managing examination results, academic schedules, and news updates. Integrated social media features and analytics to enhance user engagement. The system facilitates efficient academic dissemination and institutional communications, ensuring timely delivery of critical academic information to students and faculty.",
+    category: "Web Application",
+    technologies: ["HTML", "CSS", "JavaScript", "PHP", "jQuery", "SQL", "Bootstrap"],
+    liveUrl: "https://examcell.rguktsklm.ac.in",
+    featured: false,
+  },
+  {
+    id: "4",
+    title: "RGUKT AP Website",
+    description: "Central portal with admission announcements, dashboards, and sub-site navigation",
+    longDescription: "Led the development of a centralized portal featuring admission announcements, interactive dashboards, and seamless sub-site navigation. Achieved high user engagement through dynamic components and comprehensive multi-campus support. The platform serves as the primary interface for students, faculty, and administration across multiple RGUKT campuses in Andhra Pradesh.",
+    category: "Web Application",
+    technologies: ["HTML", "CSS", "JavaScript", "PHP", "jQuery", "SQL", "Bootstrap"],
+    liveUrl: "https://rgukt.in",
+    featured: true,
+  },
+  {
+    id: "5",
+    title: "AI Code Converter Platform",
+    description: "AI-powered platform for code conversion, generation, formatting, and explanation",
+    longDescription: "Developed an advanced AI-powered platform for code conversion, generation, formatting, and explanation. Designed modular APIs using Next.js 14 App Router with Monaco Editor integration for a rich code editing experience. Implemented dark/light theme support, fully responsive UI, and deployed on Vercel for optimal performance. The platform leverages OpenRouter API to provide intelligent code assistance and transformation capabilities.",
+    category: "Web Application",
+    technologies: ["Next.js 14", "TypeScript", "Tailwind CSS", "Monaco Editor", "OpenRouter API"],
+    liveUrl: "https://code-tools-inky.vercel.app/",
+    featured: true,
+  },
+  {
+    id: "6",
+    title: "AP Boating Website",
+    description: "Tourism booking platform for boat services with listings, pricing, and reservation forms",
+    longDescription: "Developed a comprehensive tourism booking platform for boat services featuring detailed service listings, transparent pricing structures, and intuitive reservation forms. Integrated FAQs, customer testimonials, and safety features to enhance user trust and boost conversion rates. The platform streamlines the booking process for tourists seeking boat services in Andhra Pradesh.",
+    category: "Web Application",
+    technologies: ["HTML", "CSS", "JavaScript", "PHP", "jQuery", "SQL", "Bootstrap"],
+    liveUrl: "https://apboating.com",
+    featured: false,
+  },
+  {
+    id: "7",
+    title: "Varahi Grand Srikakulam",
+    description: "Hospitality site for room bookings, hall reservations, and menu displays",
+    longDescription: "Built a comprehensive hospitality website for Varahi Grand Srikakulam featuring room booking capabilities, hall reservation systems, and detailed menu displays. Added customer testimonials and strategic call-to-action elements to improve user experience and drive inquiries. The platform provides an elegant digital presence for the hospitality establishment.",
+    category: "Web Application",
+    technologies: ["HTML", "CSS", "JavaScript", "PHP", "jQuery", "SQL", "Bootstrap"],
+    liveUrl: "https://varahigrandsrikakulam.com",
+    featured: false,
+  },
+  {
+    id: "8",
+    title: "Mess Grievance Management App",
+    description: "App for student feedback and resolution with real-time Firebase syncing and notifications",
+    longDescription: "Created a mobile application designed for student feedback collection and grievance resolution. Implemented real-time Firebase synchronization and push notifications to ensure immediate updates. The app significantly improved campus dining efficiency through streamlined grievance handling, enabling students to report issues and track resolution status in real-time.",
+    category: "Mobile Application",
+    technologies: ["Flutter", "Firebase"],
+    featured: false,
+  },
+  {
+    id: "9",
+    title: "RGUKT Campus Internal App (Aikyam) for Students",
+    description: "Flutter app for leave management, attendance, and notices with secure authentication",
+    longDescription: "Developed a comprehensive Flutter mobile application for students featuring leave management, attendance tracking, and notice board functionalities. Implemented secure authentication protocols and enabled on-the-go access with push notifications for seamless student operations. The app provides students with convenient access to essential campus services and information.",
+    category: "Mobile Application",
+    technologies: ["Flutter", "Firebase"],
+    featured: true,
+  },
+  {
+    id: "10",
+    title: "RGUKT Campus Internal App (Aikyam) for Faculty",
+    description: "Faculty companion app for course oversight and approvals with Firebase integration",
+    longDescription: "Built a dedicated faculty companion app for course oversight and approval workflows with seamless Firebase integration. Facilitated cross-platform synchronization for administrative tasks, enabling faculty members to manage courses, review student requests, and handle approvals efficiently. The app streamlines faculty operations and enhances campus administrative productivity.",
+    category: "Mobile Application",
+    technologies: ["Flutter", "Firebase"],
+    featured: false,
+  },
+  {
+    id: "11",
+    title: "Secure Desktop Exam Suite",
+    description: "Flutter-powered desktop application for tamper-proof online assessments and examinations",
+    longDescription: "Architected a robust Flutter-powered desktop application designed for secure, tamper-proof online assessments and examinations. Integrated dynamic user authentication, real-time monitoring, and advanced anti-cheating protocols to ensure exam integrity for hundreds of students simultaneously. Features include automated session lockdown, randomized question sequencing, and encrypted submission pathways. Successfully streamlined exam conduct for over 2,500+ candidates with zero reported security breaches and instant analytics for evaluation. Enhanced user experience with responsive navigation, live timer displays, and accessibility options for seamless test-taking.",
+    category: "Desktop Application",
+    technologies: ["Flutter", "Firebase", "Security", "Encryption"],
+    liveUrl: "https://tests.incosstech.com/",
+    featured: true,
+  },
+  {
+    id: "12",
+    title: "Telegram Bot for Campus Queries",
+    description: "Bot for campus queries and automation via Telegram API",
+    longDescription: "Engineered an intelligent Telegram bot for handling campus queries and automation via Telegram API. The bot efficiently handles interactions for streamlined information dissemination, providing instant responses to common queries, delivering campus updates, and assisting with administrative processes. Improved accessibility and reduced response times for students and staff.",
+    category: "Automation",
+    technologies: ["PHP", "Telegram Bot API"],
+    featured: false,
+  },
+  {
+    id: "13",
+    title: "WhatsApp Bot for Campus Support",
+    description: "Bot for real-time support using WhatsApp Business API",
+    longDescription: "Implemented a conversational support bot for real-time assistance using WhatsApp Business API. The bot processes messages and alerts through an intuitive conversational interface, providing automated responses to frequently asked questions, sending important campus announcements, and facilitating seamless communication between the institution and its members through the widely-used WhatsApp platform.",
+    category: "Automation",
+    technologies: ["PHP", "WhatsApp Business API"],
+    featured: false,
+  },
+]
