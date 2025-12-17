@@ -1,7 +1,11 @@
 import nodemailer from "nodemailer"
 
-const YOUR_EMAIL = process.env.YOUR_EMAIL || "santhoshsanapathi091104@gmail.com"
-const YOUR_APP_PASSWORD = process.env.YOUR_APP_PASSWORD || "qmwv araq vvrs frlz"
+const YOUR_EMAIL = process.env.YOUR_EMAIL
+const YOUR_APP_PASSWORD = process.env.YOUR_APP_PASSWORD
+
+if (!YOUR_EMAIL || !YOUR_APP_PASSWORD) {
+  throw new Error("YOUR_EMAIL and YOUR_APP_PASSWORD environment variables must be set")
+}
 
 // Create reusable transporter
 const transporter = nodemailer.createTransport({

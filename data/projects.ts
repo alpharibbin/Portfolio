@@ -185,5 +185,9 @@ export const projects: Project[] = [
     technologies: ["C#", ".NET Framework", "Windows Forms", "Windows Performance Counters"],
     githubUrl: "https://github.com/alpharibbin/NetSpeedMonitor",
     featured: false,
+    images: [
+      "/projects/NetSpeedMonitor/1.png",
+      "/projects/NetSpeedMonitor/2.png",
+    ],
   },
 ]

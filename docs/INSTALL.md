@@ -25,7 +25,20 @@ This guide will help you set up and run the portfolio website.
    - next-themes
    - And all other dependencies
 
-2. **Run Development Server**
+2. **Set Up Environment Variables**
+
+   Copy `.env.example` to `.env.local`:
+   ```bash
+   cp .env.example .env.local
+   ```
+
+   Edit `.env.local` and add your configuration:
+   - `YOUR_EMAIL` - Your Gmail address
+   - `YOUR_APP_PASSWORD` - Gmail App Password ([How to generate](https://support.google.com/accounts/answer/185833))
+   - `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` - reCAPTCHA Site Key
+   - `RECAPTCHA_SECRET_KEY` - reCAPTCHA Secret Key
+
+3. **Run Development Server**
 
    ```bash
    npm run dev
@@ -33,13 +46,13 @@ This guide will help you set up and run the portfolio website.
 
    Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-3. **Build for Production**
+4. **Build for Production**
 
    ```bash
    npm run build
    ```
 
-4. **Start Production Server**
+5. **Start Production Server**
 
    ```bash
    npm start
@@ -131,7 +144,7 @@ If the theme toggle doesn't work:
 
 1. Push your code to GitHub
 2. Import your repository in [Vercel](https://vercel.com)
-3. Vercel will automatically detect Next.js and configure the build
+3. Add environment variables in Vercel dashboard
 4. Deploy!
 
 ### Other Platforms
@@ -142,5 +155,5 @@ The project can be deployed to any platform that supports Next.js:
 - Railway
 - DigitalOcean App Platform
 
-Just make sure to run `npm run build` during the build process.
+Just make sure to run `npm run build` during the build process and set all environment variables.
 
