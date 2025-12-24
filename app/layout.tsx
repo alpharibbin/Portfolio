@@ -8,6 +8,7 @@ import { Footer } from "@/components/footer"
 import { Toaster } from "@/components/ui/toaster"
 import { personalInfo } from "@/data/personal"
 import { ReCaptchaProvider } from "@/components/recaptcha-provider"
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://santhoshsanapathi.dev",
+    url: "https://santhosh-sanapathi-0911.vercel.app/",
     title: `${personalInfo.name} - ${personalInfo.role}`,
     description: personalInfo.tagline,
     siteName: `${personalInfo.name} Portfolio`,
@@ -65,6 +66,23 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Global site tag (gtag.js) */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=G-9LTG3TSLVK`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config','G-9LTG3TSLVK', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
+      </head>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
