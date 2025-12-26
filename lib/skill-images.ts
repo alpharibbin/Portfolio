@@ -60,9 +60,8 @@ export function getSkillImage(skillName: string): string | null {
   return `/brands/${imageFile}`
 }
 
-/**
- * Check if an image exists for a skill
- */
+//Check if an image exists for a skill
+
 export function hasSkillImage(skillName: string): boolean {
   return skillName in skillImageMap
 }
