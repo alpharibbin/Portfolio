@@ -291,7 +291,7 @@ export default function ContactPage() {
                     <div>
                       <p className="font-medium">Telegram</p>
                       <a
-                        href={`https://t.me/${personalInfo.telegram.replace(/[^0-9]/g, '')}`}
+                        href={`https://t.me/${personalInfo.telegram}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-sm text-muted-foreground hover:text-primary transition-colors"

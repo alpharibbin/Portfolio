@@ -1,56 +1,44 @@
 export interface Skill {
   name: string
   level: number
-  category: "language" | "framework" | "tool" | "database"
+  category: "language" | "tool" | "protocol" | "hardware"
 }
 
 export const skills: Skill[] = [
-  // Languages
-  { name: "JavaScript", level: 95, category: "language" },
-  { name: "Python", level: 85, category: "language" },
-  { name: "PHP", level: 90, category: "language" },
-  { name: "C", level: 80, category: "language" },
-  { name: "C++", level: 80, category: "language" },
-  { name: "SQL", level: 90, category: "language" },
-  { name: "HTML", level: 95, category: "language" },
-  { name: "CSS", level: 95, category: "language" },
-  { name: "Java", level: 65, category: "language" },
-  { name: "TypeScript", level: 85, category: "language" },
-  
-  // Frameworks & Libraries
-  { name: "React", level: 90, category: "framework" },
-  { name: "Next.js", level: 90, category: "framework" },
-  { name: "Flutter", level: 85, category: "framework" },
-  { name: "Bootstrap", level: 95, category: "framework" },
-  { name: "jQuery", level: 90, category: "framework" },
-  { name: "Node.js", level: 85, category: "framework" },
-  { name: "Express.js", level: 80, category: "framework" },
-  { name: "Tailwind CSS", level: 90, category: "framework" },
-  
-  // Databases
-  { name: "MySQL", level: 90, category: "database" },
-  { name: "Firebase", level: 85, category: "database" },
-  { name: "Firestore", level: 85, category: "database" },
-  { name: "Realtime Database", level: 80, category: "database" },
-  
-  // Tools & Platforms
-  { name: "Git", level: 95, category: "tool" },
-  { name: "GitHub", level: 95, category: "tool" },
-  { name: "VS Code", level: 95, category: "tool" },
-  { name: "Android Studio", level: 80, category: "tool" },
-  { name: "Arduino IDE", level: 75, category: "tool" },
-  { name: "SSH", level: 85, category: "tool" },
-  { name: "Monaco Editor", level: 75, category: "tool" },
-  { name: "REST APIs", level: 90, category: "tool" },
-  { name: "Telegram Bot API", level: 80, category: "tool" },
-  { name: "WhatsApp Business API", level: 80, category: "tool" },
-  { name: "OpenRouter API", level: 75, category: "tool" },
-  { name: "Vercel", level: 85, category: "tool" },
-  
-  // Core Skills (represented as tools for display purposes)
-  { name: "Full-Stack Development", level: 90, category: "tool" },
-  { name: "REST API Integration", level: 90, category: "tool" },
-  { name: "Database Design", level: 85, category: "tool" },
-  { name: "UI/UX Implementation", level: 90, category: "tool" },
-  { name: "Performance Optimization", level: 85, category: "tool" },
+  // Programming Languages
+  { name: "C", level: 90, category: "language" },
+  { name: "C++", level: 85, category: "language" },
+  { name: "Python", level: 80, category: "language" },
+
+  // Tools & IDEs
+  { name: "KiCAD", level: 95, category: "tool" },
+  { name: "Altium Designer", level: 90, category: "tool" },
+  { name: "Arduino IDE", level: 85, category: "tool" },
+
+  // Microcontrollers
+  { name: "ATmega328P", level: 95, category: "hardware" },
+  { name: "ATmega2560", level: 90, category: "hardware" },
+  { name: "ESP-32", level: 85, category: "hardware" },
+  { name: "ESP-8266", level: 85, category: "hardware" },
+  { name: "STM32", level: 65, category: "hardware" },
+
+  // Communication Protocols
+  { name: "SPI", level: 90, category: "protocol" },
+  { name: "UART", level: 95, category: "protocol" },
+  { name: "I2C", level: 90, category: "protocol" },
+  { name: "CAN", level: 80, category: "protocol" },
+  { name: "PCI-Express", level: 75, category: "protocol" },
+  { name: "USB", level: 85, category: "protocol" },
+
+  // Hardware Design Skills
+  { name: "Schematic Design", level: 90, category: "tool" },
+  { name: "Multi-Layer PCB Layout", level: 95, category: "tool" },
+  { name: "Component Selection", level: 90, category: "tool" },
+  { name: "Layout Optimization", level: 85, category: "tool" },
+
+  // Core Embedded Skills
+  { name: "Embedded Firmware Development", level: 90, category: "tool" },
+  { name: "Sensor Interfacing", level: 85, category: "tool" },
+  { name: "Ethernet Communication (W5500)", level: 80, category: "tool" },
+  { name: "mmWave Radar Integration", level: 75, category: "tool" },
 ]

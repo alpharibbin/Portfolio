@@ -4,7 +4,7 @@ export const dynamic = 'force-dynamic'
 
 import * as React from "react"
 import { motion } from "framer-motion"
-import { Code2, Database, Wrench, Layers } from "lucide-react"
+import { Code2, Binary, Wrench, CircuitBoard } from "lucide-react"
 
 import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -17,25 +17,26 @@ import { PageTransition } from "@/components/page-transition"
 
 const categoryIcons = {
   language: Code2,
-  framework: Layers,
   tool: Wrench,
-  database: Database,
+  hardware: CircuitBoard,
+  protocol: Binary,
 }
 
 const categoryLabels = {
-  language: "Languages",
-  framework: "Frameworks & Libraries",
-  tool: "Tools & Technologies",
-  database: "Databases",
+  language: "Programming Languages",
+  tool: "Tools & Skills",
+  hardware: "Microcontrollers",
+  protocol: "Communication Protocols",
 }
 
 export default function SkillsPage() {
-  const categorizedSkills = {
-    language: skills.filter((s) => s.category === "language"),
-    framework: skills.filter((s) => s.category === "framework"),
-    tool: skills.filter((s) => s.category === "tool"),
-    database: skills.filter((s) => s.category === "database"),
-  }
+  const categorizedSkills = skills.reduce((acc: { [key: string]: typeof skills }, skill) => {
+    if (!acc[skill.category]) {
+      acc[skill.category] = []
+    }
+    acc[skill.category].push(skill)
+    return acc
+  }, {})
 
   return (
     <PageTransition>
@@ -50,7 +51,7 @@ export default function SkillsPage() {
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Skills</h1>
           <p className="text-xl text-muted-foreground max-w-3xl">
-            My technical expertise across various technologies and tools.
+            My technical expertise in embedded systems, hardware design, and related technologies.
           </p>
         </motion.div>
 
@@ -69,7 +70,7 @@ export default function SkillsPage() {
                     <div className="flex items-center space-x-2">
                       <Icon className="h-6 w-6" />
                       <CardTitle className="text-2xl">
-                        {categoryLabels[category as keyof typeof categoryLabels]}
+                        {categoryLabels[category as keyof typeof categoryLabels] || category.charAt(0).toUpperCase() + category.slice(1)}
                       </CardTitle>
                     </div>
                   </CardHeader>
@@ -138,4 +139,3 @@ export default function SkillsPage() {
     </PageTransition>
   )
 }
-
