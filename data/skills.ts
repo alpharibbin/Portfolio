@@ -66,7 +66,6 @@ export const skills: Skill[] = [
   { name: "React", level: 95, category: "framework" },
   { name: "Next.js", level: 92, category: "framework" },
   { name: "Node.js", level: 88, category: "framework" },
-  { name: "Express.js", level: 85, category: "framework" },
   { name: "Tailwind CSS", level: 92, category: "framework" },
   { name: "Flutter", level: 85, category: "framework" },
   { name: "Bootstrap", level: 90, category: "framework" },
@@ -79,7 +78,6 @@ export const skills: Skill[] = [
   { name: "Firebase", level: 88, category: "database" },
   { name: "Firestore", level: 88, category: "database" },
   { name: "Realtime Database", level: 82, category: "database" },
-  { name: "MongoDB", level: 75, category: "database" }, // added as example
 
   // ======================
   // Tools & Platforms
@@ -100,9 +98,6 @@ export const skills: Skill[] = [
   // Core / Conceptual Skills (displayed under Tools)
   // ======================
   { name: "Full-Stack Development", level: 92, category: "tool" },
-  { name: "REST API Design & Integration", level: 90, category: "tool" },
-  { name: "Database Design & Optimization", level: 88, category: "tool" },
   { name: "UI/UX Implementation", level: 90, category: "tool" },
   { name: "Performance Optimization", level: 87, category: "tool" },
-  { name: "Responsive Design", level: 93, category: "tool" },
 ]
