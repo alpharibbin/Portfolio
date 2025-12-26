@@ -23,13 +23,13 @@ export const metadata: Metadata = {
   creator: personalInfo.name,
   icons: {
     icon: [
-      { url: "/img.jpg", sizes: "any" },
-      { url: "/img.jpg", type: "image/jpeg" },
+      { url: personalInfo.avatar, sizes: "any" },
+      { url: personalInfo.avatar, type: "image/jpeg" },
     ],
     apple: [
-      { url: "/img.jpg", sizes: "180x180", type: "image/jpeg" },
+      { url: personalInfo.avatar, sizes: "180x180", type: "image/jpeg" },
     ],
-    shortcut: "/img.jpg",
+    shortcut: personalInfo.avatar,
   },
   openGraph: {
     type: "website",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${personalInfo.name} - ${personalInfo.role}`,
     description: personalInfo.tagline,
-    images: ["/img.jpg"],
+    images: [personalInfo.avatar],
   },
   robots: {
     index: true,

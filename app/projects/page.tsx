@@ -342,18 +342,18 @@ export default function ProjectsPage() {
                       className="h-full flex flex-col hover:shadow-lg transition-shadow duration-300 cursor-pointer"
                       onClick={() => setSelectedProject(project)}
                     >
-                      <CardHeader>
+                      <CardHeader className="flex-shrink-0">
                         <div className="flex items-start justify-between gap-2">
-                          <CardTitle className="text-xl">{project.title}</CardTitle>
+                          <CardTitle className="text-xl line-clamp-2">{project.title}</CardTitle>
                           {project.featured && (
                             <Badge variant="default">Featured</Badge>
                           )}
                         </div>
-                        <CardDescription>{project.description}</CardDescription>
+                        <CardDescription className="line-clamp-2">{project.description}</CardDescription>
                       </CardHeader>
-                      <CardContent className="flex-grow">
+                      <CardContent className="flex-grow min-h-0">
                         <div className="flex flex-wrap gap-2">
-                          {project.technologies.slice(0, 4).map((tech) => (
+                          {project.technologies.slice(0, 3).map((tech) => (
                             <Badge key={tech} variant="secondary">
                               {tech}
                             </Badge>
@@ -365,7 +365,7 @@ export default function ProjectsPage() {
                           )}
                         </div>
                       </CardContent>
-                      <CardFooter className="gap-2">
+                      <CardFooter className="mt-auto gap-2 flex-shrink-0">
                         <Button
                           variant="ghost"
                           size="sm"
