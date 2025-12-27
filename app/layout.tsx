@@ -8,7 +8,8 @@ import { Footer } from "@/components/footer"
 import { Toaster } from "@/components/ui/toaster"
 import { personalInfo } from "@/data/personal"
 import { ReCaptchaProvider } from "@/components/recaptcha-provider"
-import Script from "next/script";
+import Script from "next/script"
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -99,6 +100,7 @@ export default function RootLayout({
             <Toaster />
           </ReCaptchaProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )
