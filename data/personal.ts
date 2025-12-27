@@ -11,5 +11,5 @@ export const personalInfo = {
   whatsapp: "+917993791279",
   telegram: "+917993791279",
   location: "Srikakulam, Andhra Pradesh, India",
-  avatar: "/img.jpg",
+  avatar: "/img.png",
 }

@@ -18,10 +18,15 @@ import { skills, type Skill } from "@/data/skills"
 import { experiences, type Experience } from "@/data/experience"
 import { certifications, type Certification } from "@/data/certifications"
 import { PageTransition } from "@/components/page-transition"
+import { Boxes } from "@/components/ui/background-boxes";
+import { PixelatedCanvas } from "@/components/ui/pixelated-canvas";
+import { getSkillImage, hasSkillImage } from "@/lib/skill-images"
+import Image from "next/image"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 
 export default function HomePage() {
   const featuredProjects = projects.filter(p => p.featured).slice(0, 3)
-  const topSkills = skills.sort((a, b) => b.level - a.level).slice(0, 6)
+  const topSkills = skills.sort((a, b) => b.level - a.level).slice(0, 12)
   const recentExperiences = experiences.slice(0, 2)
   const recentCertifications = certifications.slice(0, 2)
 
@@ -154,79 +159,183 @@ export default function HomePage() {
         {/* About Section */}
         <section id="about" className="py-20 bg-muted/30">
           <div className="container px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="max-w-3xl mx-auto text-center space-y-6"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold">About Me</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed text-justify">
-                {personalInfo.bio}
-              </p>
-              <Button asChild variant="outline" className="mt-4">
-                <Link href="/about">
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+              {/* TEXT COLUMN */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="space-y-6"
+              >
+                <h2 className="text-3xl md:text-4xl font-bold">About Me</h2>
+
+                <p className="text-lg text-muted-foreground leading-relaxed text-justify">
+                  {personalInfo.bio}
+                </p>
+
+                <Button asChild variant="outline">
+                  <Link href="/about">
+                    Learn More
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="flex justify-center"
+              >
+                <PixelatedCanvas
+                  src="/img.jpg"
+                  cellSize={3}
+                  height={500}
+                  dotScale={0.9}
+                  shape="square"
+                  dropoutStrength={0.4}
+                  interactive
+                  backgroundColor="transparent"
+                  distortionStrength={3}
+                  distortionRadius={80}
+                  distortionMode="swirl"
+                  followSpeed={0.2}
+                  jitterStrength={4}
+                  jitterSpeed={4}
+                  sampleAverage
+                  tintColor="text-muted-foreground"
+                  tintStrength={0.2}
+                  className="w-full"
+                />
+              </motion.div>
+            </div>
           </div>
         </section>
 
-        {/* Skills Preview Section */}
-        <section id="skills" className="py-20">
-          <div className="container px-4">
+        {/* Skills Section */}
+        <section id="skills" className="py-24 bg-background">
+          <div className="container px-4 mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-center mb-12"
+              transition={{ duration: 0.6 }}
+              className="text-center mb-14"
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Skills & Technologies</h2>
-              <p className="text-muted-foreground">Technologies I work with</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Skills & Technologies
+              </h2>
+              <p className="text-muted-foreground">
+                Technologies I work with
+              </p>
             </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8">
-              {topSkills.map((skill, index) => (
-                <motion.div
-                  key={skill.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-lg flex items-center gap-2">
-                        <Code className="h-5 w-5" />
+            <TooltipProvider delayDuration={200}>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-10 max-w-6xl mx-auto">
+
+                {topSkills.map((skill, index) => {
+                  const imagePath = getSkillImage(skill.name)
+                  const hasImage = hasSkillImage(skill.name)
+
+                  const strokeWidth = 5
+                  const radius = 58
+                  const circumference = 2 * Math.PI * radius
+                  const arcLength = circumference * 0.75
+                  const offset = arcLength - (arcLength * skill.level) / 100
+
+                  return (
+                    <Tooltip key={skill.name}>
+                      <TooltipTrigger asChild>
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.85 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.4, delay: index * 0.05 }}
+                          className="flex justify-center"
+                        >
+                          <div className="relative w-40 h-40 group cursor-pointer">
+                            <Card className="relative w-full h-full rounded-full bg-card shadow-md hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+                              <svg
+                                className="absolute inset-0 w-full h-full -rotate-[225deg]"
+                                viewBox="0 0 120 120"
+                              >
+                                <circle
+                                  cx="60"
+                                  cy="60"
+                                  r={radius}
+                                  fill="none"
+                                  stroke="hsl(var(--border))"
+                                  strokeWidth={strokeWidth}
+                                  strokeDasharray={`${arcLength} ${circumference}`}
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                                <circle
+                                  cx="60"
+                                  cy="60"
+                                  r={radius}
+                                  fill="none"
+                                  stroke="url(#gradient)"
+                                  strokeWidth={strokeWidth}
+                                  strokeDasharray={`${arcLength} ${circumference}`}
+                                  strokeDashoffset={offset}
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="transition-all duration-1000 ease-out"
+                                />
+                                <defs>
+                                  <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stopColor="hsl(var(--primary))" />
+                                    <stop offset="100%" stopColor="hsl(var(--primary)/0.7)" />
+                                  </linearGradient>
+                                </defs>
+                              </svg>
+                              <div className="relative z-10 flex flex-col items-center justify-center h-full gap-3 pt-8">
+                                <div className="relative w-16 h-16">
+                                  {hasImage && imagePath ? (
+                                    <Image
+                                      src={imagePath}
+                                      alt={skill.name}
+                                      fill
+                                      className="object-contain drop-shadow-md transition-transform duration-300 group-hover:scale-110"
+                                    />
+                                  ) : (
+                                    <div className="w-full h-full bg-muted rounded-full flex items-center justify-center text-xl font-bold text-muted-foreground">
+                                      ?
+                                    </div>
+                                  )}
+                                </div>
+                                <span className="text-lg font-bold">
+                                  {skill.level}%
+                                </span>
+                              </div>
+                            </Card>
+                          </div>
+                        </motion.div>
+                      </TooltipTrigger>
+                      <TooltipContent side="bottom" className="font-medium">
                         {skill.name}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-2">
-                        <div className="flex justify-between text-sm">
-                          <span className="text-muted-foreground">Proficiency</span>
-                          <span className="font-medium">{skill.level}%</span>
-                        </div>
-                        <Progress value={skill.level} className="h-2" />
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-            <div className="text-center">
-              <Button asChild variant="outline">
-                <Link href="/skills">
+                      </TooltipContent>
+                    </Tooltip>
+                  )
+                })}
+              </div>
+            </TooltipProvider>
+
+            {/* CTA */}
+            <div className="text-center mt-14">
+              <Button asChild variant="outline" size="lg">
+                <Link href="/skills" className="flex items-center gap-2">
                   View All Skills
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
             </div>
+
           </div>
         </section>
+
 
         {/* Featured Projects Section */}
         <section id="projects" className="py-20 bg-muted/30">
@@ -434,7 +543,9 @@ export default function HomePage() {
         )}
 
         {/* Call to Action Section */}
-        <section className="py-20">
+        <section className="py-20 relative w-full h-full overflow-hidden glitter-bg flex flex-col items-center justify-center rounded-lg">
+          <Boxes/>
+          <div className="absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none"/>
           <div className="container px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -443,8 +554,8 @@ export default function HomePage() {
               transition={{ duration: 0.5 }}
               className="max-w-2xl mx-auto text-center space-y-6"
             >
-              <h2 className="text-3xl md:text-4xl font-bold">Let&apos;s Work Together</h2>
-              <p className="text-lg text-muted-foreground">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary relative z-20">Let&apos;s Work Together</h2>
+              <p className="text-lg text-muted-foreground relative z-20">
                 I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
