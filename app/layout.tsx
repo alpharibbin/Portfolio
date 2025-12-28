@@ -67,6 +67,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <script src="https://chat-admin-eight.vercel.app/api/widget/santhosh-sanapathi" async></script>
         {/* Global site tag (gtag.js) */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=G-9LTG3TSLVK`}
